@@ -11,8 +11,7 @@
 int main()
 {
    ze::Logger logger(std::cerr);
-   
+
 
    return 0;
 }
- 
