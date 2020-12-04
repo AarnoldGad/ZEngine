@@ -145,8 +145,8 @@ Tee<std::ostream> tee = make_tee(std::cout);
 //
 
 // Simplest form
-template<typename Value>
-decltype(auto) stee(Value&& value, std::ostream& output)
+template<typename Value, typename CharType>
+decltype(auto) stee(Value&& value, std::basic_ostream<CharType>& output)
 {
    output << value << std::endl;
    return std::forward<Value>(value);

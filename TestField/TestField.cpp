@@ -14,6 +14,8 @@ int main()
 {
    ze::Logger logger(std::cout);
    logger.info() << ze::Logger::warn << "Hello";
+   std::ofstream file("tee");
+   stee(45, file);
 
    return 0;
 }
