@@ -13,8 +13,7 @@
 int main()
 {
    ze::Logger logger(std::cout);
-   std::string foo = "example";
-   logger.logFormatedLine(ze::ZLogger<char>::Info, "Effective {1} with great {1} {2} Number {3}", "test", foo, -76 | tee);
+   logger.info() << ze::Logger::warn << "Hello";
 
    return 0;
 }
