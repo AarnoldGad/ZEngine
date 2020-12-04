@@ -320,6 +320,7 @@
     <ClInclude Include="include\zengine\Common\Logger.hpp" />
     <ClInclude Include="include\zengine\Core\Application.hpp" />
     <ClInclude Include="include\zengine\Core\Core.hpp" />
+    <ClInclude Include="include\zengine\Experimental\tee.hpp" />
     <ClInclude Include="include\zengine\zengine.hpp" />
     <ClInclude Include="include\zepch.hpp" />
   </ItemGroup>
@@ -334,7 +335,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Static|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Common\Logger.cpp" />
     <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Core\Core.cpp" />
   </ItemGroup>

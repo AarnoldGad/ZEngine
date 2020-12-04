@@ -1,17 +1,13 @@
 #ifndef ZE_LOGGER
 #define ZE_LOGGER
 
-// TODO
-// Sortie formattée
-// Stacktrace
-// Support wchar_t, char16_t, char32_t
-
 #include <zebuild.hpp>
-#include <iostream>
+#include <zepch.hpp>
 
 namespace ze
 {
-   class ZE_API Logger
+   template<typename CharType>
+   class ZLogger
    {
    public:
       #if defined(_WIN32)
@@ -36,9 +32,9 @@ namespace ze
       };
 
    // Constructors/Destructor
-      explicit Logger(std::streambuf* = nullptr, unsigned int logMask = 0b11111);
-      explicit Logger(std::ostream& output, unsigned int logMask = 0b11111);
-      ~Logger() = default;
+      explicit ZLogger(std::basic_streambuf<CharType>* = nullptr, unsigned int logMask = 0b11111);
+      explicit ZLogger(std::basic_ostream<CharType>& output, unsigned int logMask = 0b11111);
+      ~ZLogger() = default;
 
    // Member functions
       template<typename Message>
@@ -47,61 +43,61 @@ namespace ze
       template<typename... Messages>
       void logLine(Level logLevel, Messages&&... messages);
 
-      //template<typename... Args>
-      //void logFormatLine(Level logLevel, std::string const& unformattedString, Args&&... args);
+      template<typename... Args>
+      void logFormatedLine(Level logLevel, std::basic_string<CharType> const& unformattedLine, Args&&... args);
 
-      void setOutput(std::ostream& output);
-      void setOutput(std::streambuf* output);
-      inline std::ostream const& getOutput() const { return m_output; }
+      void setOutput(std::basic_ostream<CharType>& output);
+      void setOutput(std::basic_streambuf<CharType>* output);
+      inline std::basic_ostream<CharType> const& getOutput() const { return m_output; }
 
       void setLogMask(unsigned int mask);
       inline unsigned int getLogMask() const { return m_logMask; }
 
+      inline bool canLog() const { return m_logLevel & m_logMask && m_output.rdbuf(); };
+      inline bool isConsole() const { return m_output.rdbuf() == std::cout.rdbuf() || m_output.rdbuf() == std::cerr.rdbuf() || m_output.rdbuf() == std::clog.rdbuf(); }
+
    // Operators
       template<typename Message>
-      Logger& operator<<(Message const& message);
-      Logger& operator<<(std::ostream& (*manip)(std::ostream&));
-      Logger& operator<<(Logger& (*manip)(Logger&));
+      ZLogger<CharType>& operator<<(Message const& message);
+      ZLogger<CharType>& operator<<(std::basic_ostream<CharType>& (*manip)(std::basic_ostream<CharType>&));
+      ZLogger<CharType>& operator<<(ZLogger<CharType>& (*manip)(ZLogger<CharType>&));
 
    // Manipulators
-      Logger& info();
-      static Logger& info(Logger& logger);
+      ZLogger<CharType>& info();
+      static ZLogger<CharType>& info(ZLogger<CharType>& logger);
 
-      Logger& debug();
-      static Logger& debug(Logger& logger);
+      ZLogger<CharType>& debug();
+      static ZLogger<CharType>& debug(ZLogger<CharType>& logger);
 
-      Logger& warn();
-      static Logger& warn(Logger& logger);
+      ZLogger<CharType>& warn();
+      static ZLogger<CharType>& warn(ZLogger<CharType>& logger);
 
-      Logger& error();
-      static Logger& error(Logger& logger);
+      ZLogger<CharType>& error();
+      static ZLogger<CharType>& error(ZLogger<CharType>& logger);
 
-      Logger& critical();
-      static Logger& critical(Logger& logger);
+      ZLogger<CharType>& critical();
+      static ZLogger<CharType>& critical(ZLogger<CharType>& logger);
 
-      Logger& newLine();
-      static Logger& newLine(Logger& logger);
+      ZLogger<CharType>& newLine();
+      static ZLogger<CharType>& newLine(ZLogger<CharType>& logger);
 
-      //Logger& stacktrace();
-      //static Logger& stacktrace(Logger& logger);
-
-   // Statics
-      static void SetDefaultLogOutput(std::ostream& output);
-      static void SetDefaultLogOutput(std::streambuf* output);
+      //ZLogger<CharType>& stacktrace();
+      //static ZLogger<CharType>& stacktrace(ZLogger<CharType>& logger);
 
    private:
       void printLineDetails();
+
+      template<unsigned int N = 1, typename Head, typename... Tail>
+      std::basic_string<CharType> formatLine(std::basic_string<CharType> const& unformattedLine, Head const& head, Tail&&... tail);
+      template<unsigned int N = 1, typename Arg>
+      std::basic_string<CharType> formatLine(std::basic_string<CharType> const& unformattedLine, Arg const& arg);
 
       void setConsoleColor() const;
       void resetConsoleColor() const;
       TextColor getCorrespondingTextColor() const;
 
       void setLogLevel(Level logLevel);
-      inline bool canLog() const { return m_logLevel & m_logMask && m_output.rdbuf(); };
-      inline bool canLogToDefault() const { return this != &s_defaultLog && m_output.rdbuf() != s_defaultLog.getOutput().rdbuf(); }
-      inline bool isConsole() const { return m_output.rdbuf() == std::cout.rdbuf() || m_output.rdbuf() == std::cerr.rdbuf(); }
-
-      Logger& startNewLineAs(Level logLevel);
+      ZLogger<CharType>& startNewLineAs(Level logLevel);
 
       template<typename Head, typename... Tail>
       void write(Head const& head, Tail&&... tail);
@@ -109,16 +105,25 @@ namespace ze
       template<typename Message>
       void write(Message const& message);
 
-      static std::string levelToString(Level logLevel); // TODO Find better way to convert log level to string
+      // TODO Find better way to convert log level to string
+      static std::basic_string<CharType> levelToString(Level logLevel);
 
-      std::ostream m_output;
+      std::basic_ostream<CharType> m_output;
       unsigned int m_logMask;
       bool m_lineStart;
       Level m_logLevel;
       //TextColor m_color;
-
-      static Logger s_defaultLog;
    };
+
+   using Logger = ZLogger<char>;
+   using WLogger = ZLogger<wchar_t>;
+   #if defined(_MSC_VER) && __cplusplus > 201704L
+      using Logger8 = ZLogger<char8_t>;
+   #elif defined(__GCC__) && __cpluspluc > 201709L
+      using Logger8 = ZLogger<char8_t>;
+   #endif
+   using Logger16 = ZLogger<char16_t>;
+   using Logger32 = ZLogger<char32_t>;
 }
 
 #include <zengine/Common/Logger.inl>
