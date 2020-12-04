@@ -1,9 +1,9 @@
 template<typename CharType>
-ze::ZLogger<CharType>::ZLogger(std::basic_streambuf<CharType>* output, unsigned int logMask)
+ze::ZLogger<CharType>::ZLogger(BufType* output, unsigned int logMask)
    : m_output(output), m_logMask(logMask), m_lineStart(true), m_logLevel(Level::Info) {}
 
 template<typename CharType>
-ze::ZLogger<CharType>::ZLogger(std::basic_ostream<CharType>& output, unsigned int logMask)
+ze::ZLogger<CharType>::ZLogger(StreamType& output, unsigned int logMask)
    : m_output(output.rdbuf()), m_logMask(logMask), m_lineStart(true), m_logLevel(Level::Info) {}
 
 template<typename CharType>
@@ -24,19 +24,19 @@ void ze::ZLogger<CharType>::logLine(Level logLevel, Messages&&... messages)
 
 template<typename CharType>
 template<typename... Args>
-void ze::ZLogger<CharType>::logFormatedLine(Level logLevel, std::basic_string<CharType> const& unformattedLine, Args&&... args)
+void ze::ZLogger<CharType>::logFormatedLine(Level logLevel, StringType const& unformattedLine, Args&&... args)
 {
    logLine(logLevel, formatLine(unformattedLine, std::forward<Args>(args)...));
 }
 
 template<typename CharType>
-void ze::ZLogger<CharType>::setOutput(std::basic_ostream<CharType>& output)
+void ze::ZLogger<CharType>::setOutput(StreamType& output)
 {
    m_output.rdbuf(output.rdbuf());
 }
 
 template<typename CharType>
-void ze::ZLogger<CharType>::setOutput(std::basic_streambuf<CharType>* output)
+void ze::ZLogger<CharType>::setOutput(BufType* output)
 {
    m_output.rdbuf(output);
 }
@@ -56,14 +56,14 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(Message const& message)
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(std::basic_ostream<CharType>& (*manip)(std::basic_ostream<CharType>&))
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(StreamType& (*manip)(StreamType&))
 {
    write(manip);
    return *this;
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(ZLogger<CharType>& (*manip)(ZLogger<CharType>&))
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(ze::ZLogger<CharType>& (*manip)(ze::ZLogger<CharType>&))
 {
    return manip(*this);
 }
@@ -75,7 +75,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::info()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::info(ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::info(ze::ZLogger<CharType>& logger)
 {
    return logger.info();
 }
@@ -87,7 +87,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::debug()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::debug(ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::debug(ze::ZLogger<CharType>& logger)
 {
    return logger.debug();
 }
@@ -99,7 +99,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::warn()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::warn(ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::warn(ze::ZLogger<CharType>& logger)
 {
    return logger.warn();
 }
@@ -111,7 +111,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::error()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::error(ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::error(ze::ZLogger<CharType>& logger)
 {
    return logger.error();
 }
@@ -123,7 +123,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::critical()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::critical(ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::critical(ze::ZLogger<CharType>& logger)
 {
    return logger.critical();
 }
@@ -141,7 +141,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::newLine()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::newLine(ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::newLine(ze::ZLogger<CharType>& logger)
 {
    return logger.newLine();
 }
@@ -162,14 +162,14 @@ void ze::ZLogger<CharType>::printLineDetails()
 
 template<typename CharType>
 template<unsigned int N, typename Head, typename... Tail>
-std::basic_string<CharType> ze::ZLogger<CharType>::formatLine(std::basic_string<CharType> const& unformattedLine, Head const& head, Tail&&... tail)
+std::basic_string<CharType> ze::ZLogger<CharType>::formatLine(StringType const& unformattedLine, Head const& head, Tail&&... tail)
 {
    return formatLine<N + 1>(formatLine<N>(unformattedLine, head), std::forward<Tail>(tail)...);
 }
 
 template<typename CharType>
 template<unsigned int N, typename Arg>
-std::basic_string<CharType> ze::ZLogger<CharType>::formatLine(std::basic_string<CharType> const& unformattedLine, Arg const& arg)
+std::basic_string<CharType> ze::ZLogger<CharType>::formatLine(StringType const& unformattedLine, Arg const& arg)
 {
    std::stringstream ss;
 
