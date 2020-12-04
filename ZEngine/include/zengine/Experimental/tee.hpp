@@ -31,7 +31,6 @@
  *                    v
  *                Debugging
  *
- * TODO Should put "<< std::endl" ?
  * TODO Improve template deduction
  * TODO Improve template deduction
  */
@@ -95,9 +94,8 @@ private:
 };
 
 // Stream output specialisation
-// TODO Improve template deduction
 template<typename Stream>
-class Tee<Stream, std::enable_if_t<std::is_base_of_v<std::ostream, std::decay_t<Stream> > > >
+class Tee<Stream, std::enable_if_t<std::is_base_of_v<std::ios_base, Stream> > >
 {
 public:
 
@@ -108,7 +106,7 @@ public:
    decltype(auto) operator()(T&& value)
    {
       m_output << value << std::endl;
-      std::forward<T>(value);
+      return std::forward<T>(value);
    }
 
 private:
@@ -118,42 +116,45 @@ private:
 
 // Deductions guides
 Tee(char const*) -> Tee<std::filesystem::path>;
-Tee(std::ostream&) -> Tee<std::ostream>;
+Tee(std::string const&) -> Tee<std::filesystem::path>;
 
-// TODO Improve template deduction
 template<typename PrintFunc, std::enable_if_t<std::is_invocable_v<PrintFunc>, int> = 0>
 Tee<PrintFunc> make_tee(PrintFunc func)
 {
    return Tee<PrintFunc>(func);
 }
 
-template<typename T, typename R>
-decltype(auto) operator|(T&& value, Tee<R> tee)
+template<typename Stream, std::enable_if_t<std::is_base_of_v<std::ios_base, Stream>, int> = 0>
+Tee<Stream> make_tee(Stream& stream)
+{
+   return Tee<Stream>(stream);
+}
+
+template<typename Value, typename TeeType>
+decltype(auto) operator|(Value&& value, Tee<TeeType> tee)
 {
    tee(value);
-   return std::forward<T>(value);
+   return std::forward<Value>(value);
 }
 
 // Default tee
-auto ctee = Tee(std::cout);
-// Test Tee
-auto ttee = make_tee([]() {});
+Tee<std::ostream> tee = make_tee(std::cout);
 
 //
 // Low Level Functions
 //
 
 // Simplest form
-template<typename T>
-decltype(auto) tee(T&& value, std::ostream& output)
+template<typename Value>
+decltype(auto) stee(Value&& value, std::ostream& output)
 {
    output << value << std::endl;
-   return std::forward<T>(value);
+   return std::forward<Value>(value);
 }
 
 // TODO Open a file at each call is performance heavy
-template<typename T>
-decltype(auto) tee(T&& value, std::filesystem::path const& outputFile, std::ios_base::openmode mode = std::ios_base::out)
+template<typename Value>
+decltype(auto) ftee(Value&& value, std::filesystem::path const& outputFile, std::ios_base::openmode mode = std::ios_base::out)
 {
    std::ofstream file(outputFile, mode);
 
@@ -162,7 +163,7 @@ decltype(auto) tee(T&& value, std::filesystem::path const& outputFile, std::ios_
    else
       std::cerr << "unable to open file " << outputFile << std::endl;
 
-   return std::forward<T>(value);
+   return std::forward<Value>(value);
 }
 
 #endif // TEEDEBUG_HPP
