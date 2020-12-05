@@ -2,6 +2,9 @@
 #define ZE_INCLUDE
 
 #include <zengine/Core/Application.hpp>
+
 #include <zengine/Common/Logger.hpp>
+
+#include <zengine/Experimental/tee.hpp>
 
 #endif // ZE_INCLUDE
