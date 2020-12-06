@@ -33,16 +33,13 @@
     <ClInclude Include="include\zengine\Abstract\Singleton.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\ExceptionHandler.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\zengine\Common\Logger.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Experimental\tee.hpp">
+    <ClInclude Include="include\zengine\Common\tee.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

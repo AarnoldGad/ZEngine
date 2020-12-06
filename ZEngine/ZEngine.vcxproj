@@ -316,11 +316,10 @@
     <ClInclude Include="include\constants.hpp" />
     <ClInclude Include="include\zebuild.hpp" />
     <ClInclude Include="include\zengine\Abstract\Singleton.hpp" />
-    <ClInclude Include="include\zengine\Common\ExceptionHandler.hpp" />
     <ClInclude Include="include\zengine\Common\Logger.hpp" />
     <ClInclude Include="include\zengine\Core\Application.hpp" />
     <ClInclude Include="include\zengine\Core\Core.hpp" />
-    <ClInclude Include="include\zengine\Experimental\tee.hpp" />
+    <ClInclude Include="include\zengine\Common\tee.hpp" />
     <ClInclude Include="include\zengine\zengine.hpp" />
     <ClInclude Include="include\zepch.hpp" />
   </ItemGroup>
