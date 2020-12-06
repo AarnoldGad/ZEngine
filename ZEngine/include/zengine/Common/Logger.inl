@@ -63,7 +63,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(StreamType& (*manip)(St
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(ze::ZLogger<CharType>& (*manip)(ze::ZLogger<CharType>&))
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::operator<<(LoggerType& (*manip)(LoggerType&))
 {
    return manip(*this);
 }
@@ -75,7 +75,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::info()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::info(ze::ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::info(LoggerType& logger)
 {
    return logger.info();
 }
@@ -87,7 +87,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::debug()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::debug(ze::ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::debug(LoggerType& logger)
 {
    return logger.debug();
 }
@@ -99,7 +99,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::warn()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::warn(ze::ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::warn(LoggerType& logger)
 {
    return logger.warn();
 }
@@ -111,7 +111,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::error()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::error(ze::ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::error(LoggerType& logger)
 {
    return logger.error();
 }
@@ -123,7 +123,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::critical()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::critical(ze::ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::critical(LoggerType& logger)
 {
    return logger.critical();
 }
@@ -141,7 +141,7 @@ ze::ZLogger<CharType>& ze::ZLogger<CharType>::newLine()
 }
 
 template<typename CharType>
-ze::ZLogger<CharType>& ze::ZLogger<CharType>::newLine(ze::ZLogger<CharType>& logger)
+ze::ZLogger<CharType>& ze::ZLogger<CharType>::newLine(LoggerType& logger)
 {
    return logger.newLine();
 }
