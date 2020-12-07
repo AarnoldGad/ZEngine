@@ -320,6 +320,9 @@
     <ClInclude Include="include\zengine\Core\Application.hpp" />
     <ClInclude Include="include\zengine\Core\Core.hpp" />
     <ClInclude Include="include\zengine\Common\tee.hpp" />
+    <ClInclude Include="include\zengine\Event\Event.hpp" />
+    <ClInclude Include="include\zengine\Event\EventBus.hpp" />
+    <ClInclude Include="include\zengine\Event\EventListener.hpp" />
     <ClInclude Include="include\zengine\zengine.hpp" />
     <ClInclude Include="include\zepch.hpp" />
   </ItemGroup>
@@ -336,10 +339,13 @@
     </ClCompile>
     <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Core\Core.cpp" />
+    <ClCompile Include="src\Event\Event.cpp" />
+    <ClCompile Include="src\Event\EventBus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\zengine\Abstract\Singleton.inl" />
     <None Include="include\zengine\Common\Logger.inl" />
+    <None Include="include\zengine\Event\EventBus.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
