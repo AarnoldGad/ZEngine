@@ -48,7 +48,10 @@
     <ClInclude Include="include\zengine\Event\EventBus.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Event\EventListener.hpp">
+    <ClInclude Include="include\zengine\Event\EventHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Event\EventCallback.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,6 +71,9 @@
     <ClCompile Include="src\Event\EventBus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Event\EventCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\zengine\Abstract\Singleton.inl">
@@ -77,6 +83,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\zengine\Event\EventBus.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\zengine\Event\EventHandler.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
