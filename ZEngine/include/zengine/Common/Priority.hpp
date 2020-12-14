@@ -1,6 +1,6 @@
 /**
- * Core.hpp
- * 18 Dec 2020
+ * Priority.hpp
+ * 14 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020 Gaétan Jalin
@@ -23,25 +23,21 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_CORE
-#define ZE_CORE
+#ifndef ZE_PRIORITY
+#define ZE_PRIORITY
 
 #include <zebuild.hpp>
 
 namespace ze
 {
-	class ZE_API Core
+	enum class Priority : unsigned short
 	{
-	public:
-		Core() = default;
-		~Core() = default;
-
-		void placeApplication();
-
-	private:
-
-
+		VeryLow = FLAG(0),
+		Low = FLAG(1),
+		Normal = FLAG(2),
+		High = FLAG(3),
+		VeryHigh = FLAG(4)
 	};
 }
 
-#endif // ZE_CORE
+#endif // ZE_PRIORITY

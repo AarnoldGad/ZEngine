@@ -1,6 +1,6 @@
 /**
- * Core.hpp
- * 18 Dec 2020
+ * Event.hpp
+ * 12 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020 Gaétan Jalin
@@ -23,25 +23,30 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_CORE
-#define ZE_CORE
+#ifndef ZE_EVENT
+#define ZE_EVENT
 
 #include <zebuild.hpp>
 
 namespace ze
 {
-	class ZE_API Core
+	class ZE_API Event
 	{
 	public:
-		Core() = default;
-		~Core() = default;
+		void cancel();
+		void setCanceled(bool cancel);
+		bool isCanceled() const;
 
-		void placeApplication();
+		virtual std::string toString() const = 0;
+
+		Event(/* TimeStamp */);
+		virtual ~Event() = default;
 
 	private:
-
-
+		bool m_canceled;
 	};
 }
 
-#endif // ZE_CORE
+#include <inline/Event/Event.inl>
+
+#endif // ZE_EVENT

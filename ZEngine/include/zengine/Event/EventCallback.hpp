@@ -1,6 +1,6 @@
 /**
- * Core.hpp
- * 18 Dec 2020
+ * EventCallback.hpp
+ * 14 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020 Gaétan Jalin
@@ -23,25 +23,30 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_CORE
-#define ZE_CORE
+#ifndef ZE_EVENTCALLBACK
+#define ZE_EVENTCALLBACK
 
 #include <zebuild.hpp>
+#include <zengine/Common/Priority.hpp>
+#include <zengine/Event/Event.hpp>
+#include <zengine/Event/EventBus.hpp>
 
 namespace ze
 {
-	class ZE_API Core
+	class ZE_API EventCallback
 	{
 	public:
-		Core() = default;
-		~Core() = default;
+		explicit EventCallback(Priority priority);
 
-		void placeApplication();
+		virtual void operator()(Event&) = 0;
+
+		Priority getPriority() const;
 
 	private:
-
-
+		Priority m_priority;
 	};
 }
 
-#endif // ZE_CORE
+#include <inline/Event/EventCallback.inl>
+
+#endif // ZE_EVENTCALLBACK

@@ -1,6 +1,6 @@
 /**
- * Core.hpp
- * 18 Dec 2020
+ * EventBus.hpp
+ * 12 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020 Gaétan Jalin
@@ -23,25 +23,43 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_CORE
-#define ZE_CORE
+#ifndef ZE_EVENTBUS
+#define ZE_EVENTBUS
 
 #include <zebuild.hpp>
+#include <zengine/Event/Event.hpp>
+#include <zengine/Common/Priority.hpp>
 
 namespace ze
 {
-	class ZE_API Core
+	class EventCallback;
+
+	class ZE_API EventBus
 	{
 	public:
-		Core() = default;
-		~Core() = default;
+		template<typename EventType>
+		void pushEvent(EventType&& event);
 
-		void placeApplication();
+		template<typename EventType, typename... Args>
+		void pushEvent(Args&&... args);
+
+		void subscribe(EventCallback* callback);
+		void unsubscribe(EventCallback* callback);
+
+		void dispatchEvents();
+		void fireEvent(Event& event);
+
+		EventBus() = default;
+		~EventBus();
 
 	private:
+		void clearStack();
 
-
+		std::list<Event*> m_eventStack;
+		std::map<Priority, std::list<EventCallback*>, std::greater<Priority> > m_callbacks;
 	};
 }
 
-#endif // ZE_CORE
+#include <inline/Event/EventBus.inl>
+
+#endif // ZE_EVENTBUS

@@ -6,9 +6,11 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <filesystem>
 
 #include <functional>
 #include <utility>
+#include <memory>
 #include <algorithm>
 #include <ctime>
 
