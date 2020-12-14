@@ -1,46 +1,65 @@
+/**
+ * EventBus.hpp
+ * 12 Dec 2020
+ * Gaétan "The Aarnold" Jalin
+ *
+ * Copyright (C) 2020 Gaétan Jalin
+ *
+ * This software is provided 'as-is', without any express or implied
+ * warranty.  In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ *
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ *
+ *    1. The origin of this software must not be misrepresented; you must not
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would be
+ *    appreciated but is not required.
+ *
+ *    2. Altered source versions must be plainly marked as such, and must not be
+ *    misrepresented as being the original software.
+ *
+ *    3. This notice may not be removed or altered from any source distribution.
+ **/
 #ifndef ZE_EVENTBUS
 #define ZE_EVENTBUS
 
 #include <zebuild.hpp>
-#include <list>
-#include <map>
-#include <memory>
 #include <zengine/Event/Event.hpp>
-#include <zengine/Event/EventCallback.hpp>
+#include <zengine/Common/Priority.hpp>
 
 namespace ze
 {
-   enum class Priority : unsigned int
-   {
-      VeryLow = FLAG(0),
-      Low = FLAG(1),
-      Normal = FLAG(2),
-      High = FLAG(3),
-      VeryHigh = FLAG(4)
-   };
+	class EventCallback;
 
-   class ZE_API EventBus
-   {
-   public:
-      EventBus() = default;
+	class ZE_API EventBus
+	{
+	public:
+		template<typename EventType>
+		void pushEvent(EventType&& event);
 
-      void dispatchEvents();
-      void fireEvent(Event& event);
+		template<typename EventType, typename... Args>
+		void pushEvent(Args&&... args);
 
-      template<typename EventType>
-      void pushEvent(EventType&& event);
-      template<typename EventType, typename... Args>
-      void pushEvent(Args&&... args);
+		void subscribe(EventCallback* callback);
+		void unsubscribe(EventCallback* callback);
 
-      void subscribe(EventCallback* callback);
-      void unsubscribe(EventCallback* callback);
+		void dispatchEvents();
+		void fireEvent(Event& event);
 
-   private:
-      std::list<std::unique_ptr<Event> > m_eventStack; // Raw Pointers more efficient ?
-      std::map<Priority, std::list<EventCallback*>, std::greater<Priority> > m_callbacks;
-   };
+		EventBus() = default;
+		~EventBus();
+
+	private:
+		void clearStack();
+
+		std::list<Event*> m_eventStack;
+		std::map<Priority, std::list<EventCallback*>, std::greater<Priority> > m_callbacks;
+	};
 }
 
-#include <zengine/Event/EventBus.inl>
+#include <inline/Event/EventBus.inl>
 
 #endif // ZE_EVENTBUS

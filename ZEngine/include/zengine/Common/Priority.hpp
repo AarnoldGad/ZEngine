@@ -1,6 +1,6 @@
 /**
- * EventHandler.hpp
- * 12 Dec 2020
+ * Priority.hpp
+ * 14 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020 Gaétan Jalin
@@ -23,34 +23,21 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_EVENTHANDLER
-#define ZE_EVENTHANDLER
+#ifndef ZE_PRIORITY
+#define ZE_PRIORITY
 
-#include <zengine/Event/Event.hpp>
-#include <zengine/Event/EventCallback.hpp>
-
-template<typename Type>
-using enable_if_is_event = std::enable_if_t<std::is_base_of_v<ze::Event, Type> >;
+#include <zebuild.hpp>
 
 namespace ze
 {
-	template<typename EventType, typename = enable_if_is_event<EventType>>
-	class EventHandler : public EventCallback
+	enum class Priority : unsigned short
 	{
-	public:
-		using CallbackType = std::function<void(EventType&)>;
-
-		explicit EventHandler(CallbackType callback, Priority priority = Priority::Normal);
-
-		virtual void operator()(Event& event) override final;
-
-	private:
-		bool isEventReceivable(Event& event) const;
-
-		CallbackType m_callback;
+		VeryLow = FLAG(0),
+		Low = FLAG(1),
+		Normal = FLAG(2),
+		High = FLAG(3),
+		VeryHigh = FLAG(4)
 	};
 }
 
-#include <inline/Event/EventHandler.inl>
-
-#endif // ZE_EVENTHANDLER
+#endif // ZE_PRIORITY
