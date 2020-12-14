@@ -18,9 +18,6 @@
     <ClInclude Include="include\zebuild.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zepch.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\zengine\zengine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,11 +51,14 @@
     <ClInclude Include="include\zengine\Event\EventCallback.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\zengine\Common\Priority.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zepch.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\zepch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Core\Core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,18 +74,27 @@
     <ClCompile Include="src\Event\EventCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\zepch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\zengine\Abstract\Singleton.inl">
+    <None Include="include\inline\Abstract\Singleton.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="include\zengine\Common\Logger.inl">
+    <None Include="include\inline\Common\Logger.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="include\zengine\Event\EventBus.inl">
+    <None Include="include\inline\Common\tee.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="include\zengine\Event\EventHandler.inl">
+    <None Include="include\inline\Event\EventBus.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Event\EventHandler.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Event\EventCallback.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

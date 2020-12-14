@@ -175,7 +175,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -191,7 +191,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -209,7 +209,7 @@
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -229,7 +229,7 @@
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -247,7 +247,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -263,7 +263,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -281,7 +281,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -301,7 +301,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Workspace\ZEngine\ZEngine\include;D:\Workspace\ZEngine\ZEngine\inline</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -317,6 +317,7 @@
     <ClInclude Include="include\zebuild.hpp" />
     <ClInclude Include="include\zengine\Abstract\Singleton.hpp" />
     <ClInclude Include="include\zengine\Common\Logger.hpp" />
+    <ClInclude Include="include\zengine\Common\Priority.hpp" />
     <ClInclude Include="include\zengine\Core\Application.hpp" />
     <ClInclude Include="include\zengine\Core\Core.hpp" />
     <ClInclude Include="include\zengine\Common\tee.hpp" />
@@ -329,14 +330,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\zepch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Static|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Static|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Core\Core.cpp" />
@@ -345,10 +346,12 @@
     <ClCompile Include="src\Event\EventCallback.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="include\zengine\Abstract\Singleton.inl" />
-    <None Include="include\zengine\Common\Logger.inl" />
-    <None Include="include\zengine\Event\EventBus.inl" />
-    <None Include="include\zengine\Event\EventHandler.inl" />
+    <None Include="include\inline\Abstract\Singleton.inl" />
+    <None Include="include\inline\Common\Logger.inl" />
+    <None Include="include\inline\Common\tee.inl" />
+    <None Include="include\inline\Event\EventBus.inl" />
+    <None Include="include\inline\Event\EventCallback.inl" />
+    <None Include="include\inline\Event\EventHandler.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,14 +1,16 @@
-#ifndef ZEPCH
-#define ZEPCH
+#ifndef ZE_PCH
+#define ZE_PCH
 
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <filesystem>
 
 #include <functional>
 #include <utility>
+#include <memory>
 #include <algorithm>
 #include <ctime>
 
@@ -19,7 +21,7 @@
 #include <map>
 
 #ifdef _WIN32
-   #include <Windows.h>
+	#include <Windows.h>
 #endif
 
-#endif // ZEPCH
+#endif // ZE_PCH
