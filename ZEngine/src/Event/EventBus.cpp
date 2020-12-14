@@ -14,7 +14,10 @@ void ze::EventBus::fireEvent(Event& event)
 {
 	for (auto& it : m_callbacks)
 		for (auto& callback : it.second)
-			(*callback)(event);
+			if (!event.isCanceled())
+				(*callback)(event);
+			else
+				return;
 }
 
 void ze::EventBus::subscribe(EventCallback* callback)

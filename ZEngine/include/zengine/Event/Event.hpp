@@ -33,10 +33,11 @@ namespace ze
 	class ZE_API Event
 	{
 	public:
+		void cancel();
 		void setCanceled(bool cancel);
 		bool isCanceled() const;
 
-		virtual std::string toString() = 0;
+		virtual std::string toString() const = 0;
 
 		Event(/* TimeStamp */);
 		virtual ~Event() = default;
