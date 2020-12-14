@@ -349,6 +349,7 @@
     <None Include="include\inline\Abstract\Singleton.inl" />
     <None Include="include\inline\Common\Logger.inl" />
     <None Include="include\inline\Common\tee.inl" />
+    <None Include="include\inline\Event\Event.inl" />
     <None Include="include\inline\Event\EventBus.inl" />
     <None Include="include\inline\Event\EventCallback.inl" />
     <None Include="include\inline\Event\EventHandler.inl" />

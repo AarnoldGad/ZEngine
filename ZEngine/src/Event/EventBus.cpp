@@ -4,12 +4,17 @@
 
 void ze::EventBus::dispatchEvents()
 {
+	for (auto& it : m_eventStack)
+		fireEvent(*it);
 
+	clearStack();
 }
 
 void ze::EventBus::fireEvent(Event& event)
 {
-
+	for (auto& it : m_callbacks)
+		for (auto& callback : it.second)
+			(*callback)(event);
 }
 
 void ze::EventBus::subscribe(EventCallback* callback)
