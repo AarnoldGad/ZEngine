@@ -6,13 +6,14 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-#include <filesystem>
 
 #include <functional>
+#include <filesystem>
 #include <utility>
 #include <memory>
 #include <algorithm>
 #include <ctime>
+#include <cstdint>
 
 #include <vector>
 #include <stack>
@@ -29,6 +30,9 @@
 #include <zengine/Core/Application.hpp>
 
 #include <zengine/Common/Logger.hpp>
+#include <zengine/Common/Date.hpp>
+#include <zengine/Common/Time.hpp>
+#include <zengine/Common/Clock.hpp>
 #include <zengine/Common/tee.hpp>
 
 #include <zengine/Event/Event.hpp>

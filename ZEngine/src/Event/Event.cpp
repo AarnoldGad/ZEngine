@@ -1,15 +1,18 @@
 #include "zepch.hpp"
 #include <zengine/Event/Event.hpp>
 
-ze::Event::Event()
-   : m_canceled(false) {}
-
-void ze::Event::cancel()
+namespace ze
 {
-   m_canceled = true;
-}
+   Event::Event()
+      : m_canceled(false) {}
 
-void ze::Event::setCanceled(bool cancel)
-{
-   m_canceled = cancel;
+   void Event::cancel()
+   {
+      m_canceled = true;
+   }
+
+   void Event::setCanceled(bool cancel)
+   {
+      m_canceled = cancel;
+   }
 }
