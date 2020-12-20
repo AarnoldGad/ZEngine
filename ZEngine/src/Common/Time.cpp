@@ -15,44 +15,24 @@ namespace ze
 	{
 		std::timespec ts;
 		if (std::timespec_get(&ts, TIME_UTC))
-			return Time((ts.tv_sec * 1000000) + (ts.tv_nsec / 1000));
+			return Seconds(static_cast<float>(ts.tv_sec)) + Microseconds(ts.tv_nsec / 1e-3);
 
 		return Time::Null;
 	}
 
 	Time Time::Seconds(float seconds) noexcept
 	{
-		return Time(static_cast<int64_t>(seconds * 1000000.f));
+		return Time(static_cast<int64_t>(seconds * 1e+6));
 	}
 
 	Time Time::Milliseconds(int milliseconds) noexcept
 	{
-		return Time(static_cast<int64_t>(milliseconds * 1000));
+		return Time(static_cast<int64_t>(milliseconds) * 1e+3);
 	}
 
 	Time Time::Microseconds(int64_t microseconds) noexcept
 	{
 		return Time(microseconds);
-	}
-
-	float Time::asSeconds() const noexcept
-	{
-		return m_microseconds / 1000000.f;
-	}
-
-	int Time::asSecondsInt() const noexcept
-	{
-		return static_cast<int>(m_microseconds / 1000000);
-	}
-
-	int Time::asMilliseconds() const noexcept
-	{
-		return static_cast<int>(m_microseconds / 1000);
-	}
-
-	int64_t Time::asMicroseconds() const noexcept
-	{
-		return m_microseconds;
 	}
 
 	Time Time::operator-() const noexcept

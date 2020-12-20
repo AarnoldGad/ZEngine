@@ -175,7 +175,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -191,7 +191,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -209,7 +209,7 @@
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -229,7 +229,7 @@
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -247,7 +247,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -263,7 +263,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -281,7 +281,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -301,7 +301,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include;$(SolutionDir)ZEngine\inline</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ZEngine\include</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>zepch.hpp</PrecompiledHeaderFile>
     </ClCompile>
@@ -355,6 +355,7 @@
     <None Include="include\inline\Abstract\Singleton.inl" />
     <None Include="include\inline\Common\Logger.inl" />
     <None Include="include\inline\Common\tee.inl" />
+    <None Include="include\inline\Common\Time.inl" />
     <None Include="include\inline\Event\Event.inl" />
     <None Include="include\inline\Event\EventBus.inl" />
     <None Include="include\inline\Event\EventCallback.inl" />

@@ -25,6 +25,8 @@
 	#include <Windows.h>
 #endif
 
+#include "../constants.hpp"
+
 #include <zengine/Abstract/Singleton.hpp>
 
 #include <zengine/Core/Application.hpp>

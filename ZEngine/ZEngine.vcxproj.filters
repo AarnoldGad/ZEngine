@@ -118,5 +118,8 @@
     <None Include="include\inline\Event\Event.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="include\inline\Common\Time.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

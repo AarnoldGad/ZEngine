@@ -5,6 +5,5 @@
 
 int main()
 {
-	std::cout << sizeof(void*) << std::endl;
 	return 0;
 }

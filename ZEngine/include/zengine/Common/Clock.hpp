@@ -27,16 +27,25 @@
 #define ZE_CLOCK
 
 #include <zebuild.hpp>
+#include <zengine/Common/Time.hpp>
 
 namespace ze
 {
 	class ZE_API Clock
 	{
 	public:
+		Time lap() const noexcept;
+		Time restart() noexcept;
 
+		void pause() noexcept;
+		void resume() noexcept;
+
+		Clock();
 
 	private:
-		std::timespec m_start;
+		Time m_startTime;
+		Time m_accumTime;
+		bool m_paused;
 	};
 }
 

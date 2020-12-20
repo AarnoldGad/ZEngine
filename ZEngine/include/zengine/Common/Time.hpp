@@ -41,7 +41,7 @@ namespace ze
 		static Time Microseconds(int64_t microseconds) noexcept;
 
 		float asSeconds() const noexcept;
-		int asSecondsInt() const noexcept;
+		float asSecondsInt() const noexcept;
 		int asMilliseconds() const noexcept;
 		int64_t asMicroseconds() const noexcept;
 
@@ -87,5 +87,7 @@ namespace ze
 		int64_t m_microseconds;
 	};
 }
+
+#include <inline/Common/Time.inl>
 
 #endif // ZE_TIME
