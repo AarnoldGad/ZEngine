@@ -1,17 +1,17 @@
 #include "zepch.hpp"
-#include <zengine/Common/Clock.hpp>
+#include <zengine/Common/Time/Timer.hpp>
 
 namespace ze
 {
-	Clock::Clock()
+	Timer::Timer()
 		: m_startTime(Time::Now()), m_accumTime(Time::Null), m_paused(false) {}
 
-	Time Clock::lap() const noexcept
+	Time Timer::lap() const noexcept
 	{
 		return m_paused ? m_accumTime : (m_startTime - Time::Now() + m_accumTime);
 	}
 
-	Time Clock::restart() noexcept
+	Time Timer::restart() noexcept
 	{
 		Time elapsed = lap();
 
@@ -22,13 +22,13 @@ namespace ze
 		return elapsed;
 	}
 
-	void Clock::pause() noexcept
+	void Timer::pause() noexcept
 	{
 		m_accumTime += lap();
 		m_paused = true;
 	}
 
-	void Clock::resume() noexcept
+	void Timer::resume() noexcept
 	{
 		m_startTime = Time::Now();
 		m_paused = false;

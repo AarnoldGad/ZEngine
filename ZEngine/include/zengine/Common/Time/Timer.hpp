@@ -1,5 +1,5 @@
 /**
- * Clock.hpp
+ * Timer.hpp
  * 20 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
@@ -23,15 +23,15 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_CLOCK
-#define ZE_CLOCK
+#ifndef ZE_TIMER
+#define ZE_TIMER
 
 #include <zebuild.hpp>
-#include <zengine/Common/Time.hpp>
+#include <zengine/Common/Time/Time.hpp>
 
 namespace ze
 {
-	class ZE_API Clock
+	class ZE_API Timer
 	{
 	public:
 		Time lap() const noexcept;
@@ -40,7 +40,7 @@ namespace ze
 		void pause() noexcept;
 		void resume() noexcept;
 
-		Clock();
+		Timer();
 
 	private:
 		Time m_startTime;
@@ -49,4 +49,4 @@ namespace ze
 	};
 }
 
-#endif // ZE_CLOCK
+#endif // ZE_TIMER

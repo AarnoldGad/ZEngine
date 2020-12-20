@@ -32,10 +32,11 @@
 #include <zengine/Core/Application.hpp>
 
 #include <zengine/Common/Logger.hpp>
-#include <zengine/Common/Date.hpp>
-#include <zengine/Common/Time.hpp>
-#include <zengine/Common/Clock.hpp>
 #include <zengine/Common/tee.hpp>
+#include <zengine/Common/Time/Time.hpp>
+#include <zengine/Common/Time/Timer.hpp>
+#include <zengine/Common/Time/Clock.hpp>
+#include <zengine/Common/Time/Date.hpp>
 
 #include <zengine/Event/Event.hpp>
 #include <zengine/Event/EventBus.hpp>
