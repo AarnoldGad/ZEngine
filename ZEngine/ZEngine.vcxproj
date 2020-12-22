@@ -316,11 +316,12 @@
     <ClInclude Include="include\constants.hpp" />
     <ClInclude Include="include\zebuild.hpp" />
     <ClInclude Include="include\zengine\Abstract\Singleton.hpp" />
-    <ClInclude Include="include\zengine\Common\Clock.hpp" />
-    <ClInclude Include="include\zengine\Common\Date.hpp" />
+    <ClInclude Include="include\zengine\Common\Time\Clock.hpp" />
+    <ClInclude Include="include\zengine\Common\Time\Date.hpp" />
     <ClInclude Include="include\zengine\Common\Logger.hpp" />
     <ClInclude Include="include\zengine\Common\Priority.hpp" />
-    <ClInclude Include="include\zengine\Common\Time.hpp" />
+    <ClInclude Include="include\zengine\Common\Time\Time.hpp" />
+    <ClInclude Include="include\zengine\Common\Time\Timer.hpp" />
     <ClInclude Include="include\zengine\Core\Application.hpp" />
     <ClInclude Include="include\zengine\Core\Core.hpp" />
     <ClInclude Include="include\zengine\Common\tee.hpp" />
@@ -342,9 +343,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug-Static|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Common\Clock.cpp" />
-    <ClCompile Include="src\Common\Date.cpp" />
-    <ClCompile Include="src\Common\Time.cpp" />
+    <ClCompile Include="src\Common\Time\Timer.cpp" />
+    <ClCompile Include="src\Common\Time\Date.cpp" />
+    <ClCompile Include="src\Common\Time\Time.cpp" />
     <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Core\Core.cpp" />
     <ClCompile Include="src\Event\Event.cpp" />

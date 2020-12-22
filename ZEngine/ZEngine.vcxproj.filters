@@ -57,13 +57,16 @@
     <ClInclude Include="include\zengine\Common\tee.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\Time.hpp">
+    <ClInclude Include="include\zengine\Common\Time\Clock.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\Date.hpp">
+    <ClInclude Include="include\zengine\Common\Time\Date.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\Clock.hpp">
+    <ClInclude Include="include\zengine\Common\Time\Time.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Common\Time\Timer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -86,13 +89,13 @@
     <ClCompile Include="include\zepch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Common\Time.cpp">
+    <ClCompile Include="src\Common\Time\Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Common\Clock.cpp">
+    <ClCompile Include="src\Common\Time\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Common\Date.cpp">
+    <ClCompile Include="src\Common\Time\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
