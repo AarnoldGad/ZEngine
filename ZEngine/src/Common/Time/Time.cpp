@@ -15,7 +15,7 @@ namespace ze
 	{
 		std::timespec ts;
 		if (std::timespec_get(&ts, TIME_UTC))
-			return Seconds(static_cast<float>(ts.tv_sec)) + Microseconds(ts.tv_nsec / 1e-3);
+			return Seconds(static_cast<float>(ts.tv_sec)) + Microseconds(ts.tv_nsec / 1000);
 
 		return Time::Null;
 	}
@@ -27,7 +27,7 @@ namespace ze
 
 	Time Time::Milliseconds(int milliseconds) noexcept
 	{
-		return Time(static_cast<int64_t>(milliseconds) * 1e+3);
+		return Time(static_cast<int64_t>(milliseconds * 1e+3));
 	}
 
 	Time Time::Microseconds(int64_t microseconds) noexcept

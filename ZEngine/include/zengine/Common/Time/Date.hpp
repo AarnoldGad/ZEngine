@@ -1,9 +1,9 @@
 /**
  * Date.hpp
- * 20 Dec 2020
+ * 29 Jan 2021
  * Gaétan "The Aarnold" Jalin
  *
- * Copyright (C) 2020 Gaétan Jalin
+ * Copyright (C) 2020-2021 Gaétan Jalin
  *
  * This software is provided 'as-is', without any express or implied
  * warranty.  In no event will the authors be held liable for any damages
@@ -33,11 +33,47 @@ namespace ze
 	class ZE_API Date
 	{
 	public:
+		enum class Month : unsigned char
+		{
+			JANUARY = 0, FEBRUARY, MARCH, APRIL, MAY, JUNE,
+			JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+		};
 
+		static Date CurrentDate();
+
+		static bool IsLeapYear(int year) noexcept;
+		static bool Is30DaysMonth(Month month) noexcept;
+		static bool Is31DaysMonth(Month month) noexcept;
+
+		void addDays(int days) noexcept;
+		void addMonths(int months) noexcept;
+		void addYears(int years) noexcept;
+		void add(int days, int months, int years) noexcept;
+
+		void setDay(int day) noexcept;
+		void setMonth(Month month) noexcept;
+		void setYear(int year) noexcept;
+
+		int getDay() const noexcept;
+		Month getMonth() const noexcept;
+		int getYear() const noexcept;
+
+		std::string format(std::string const& formatString) const noexcept;
+
+		Date(int day, Month month, int year);
+		Date() = default;
+
+		// Temp
+		Date(Date const&) = delete;
+		Date& operator=(Date const&) = delete;
 
 	private:
-
+		int m_day;
+		Month m_month;
+		int m_year;
 	};
 }
+
+#include <inline/Common/Time/Date.inl>
 
 #endif // ZE_DATE

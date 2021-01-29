@@ -57,16 +57,13 @@
     <ClInclude Include="include\zengine\Common\tee.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\Time\Clock.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\zengine\Common\Time\Date.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\zengine\Common\Time\Time.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\Time\Timer.hpp">
+    <ClInclude Include="include\zengine\Common\Time\Chrono.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,7 +92,7 @@
     <ClCompile Include="src\Common\Time\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Common\Time\Timer.cpp">
+    <ClCompile Include="src\Common\Time\Chrono.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -121,7 +118,10 @@
     <None Include="include\inline\Event\Event.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="include\inline\Common\Time.inl">
+    <None Include="include\inline\Common\Time\Time.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Time\Date.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
