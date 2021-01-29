@@ -88,6 +88,6 @@ namespace ze
 	};
 }
 
-#include <inline/Common/Time.inl>
+#include <inline/Common/Time/Time.inl>
 
 #endif // ZE_TIME
