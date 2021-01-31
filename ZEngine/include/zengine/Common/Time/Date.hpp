@@ -44,6 +44,7 @@ namespace ze
 		static bool IsLeapYear(int year) noexcept;
 		static bool Is30DaysMonth(Month month) noexcept;
 		static bool Is31DaysMonth(Month month) noexcept;
+		static int MonthMaxDays(Month month, int year) noexcept;
 
 		void addDays(int days) noexcept;
 		void addMonths(int months) noexcept;
@@ -61,7 +62,7 @@ namespace ze
 		std::string format(std::string const& formatString) const noexcept;
 
 		Date(int day, Month month, int year);
-		Date() = default;
+		Date();
 
 		// Temp
 		Date(Date const&) = delete;
@@ -72,6 +73,12 @@ namespace ze
 		Month m_month;
 		int m_year;
 	};
+
+	Date::Month operator++(Date::Month& month, int) noexcept;
+	Date::Month operator--(Date::Month& month, int) noexcept;
+
+	Date::Month& operator++(Date::Month& month) noexcept;
+	Date::Month& operator--(Date::Month& month) noexcept;
 }
 
 #include <inline/Common/Time/Date.inl>
