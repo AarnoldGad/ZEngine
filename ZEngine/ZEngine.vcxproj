@@ -330,6 +330,7 @@
     <ClInclude Include="include\zengine\Event\EventHandler.hpp" />
     <ClInclude Include="include\zengine\zengine.hpp" />
     <ClInclude Include="include\zepch.hpp" />
+    <ClInclude Include="test\Time\TimeTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\zepch.cpp">

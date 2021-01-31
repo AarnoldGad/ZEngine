@@ -13,10 +13,10 @@ namespace ze
 
 	int Date::MonthMaxDays(Month month, int year) noexcept
 	{
-		if (Is30DaysMonth(month))
-			return 30;
-		else if (Is31DaysMonth(month))
+		if (Is31DaysMonth(month))
 			return 31;
+		else if (Is30DaysMonth(month))
+			return 30;
 		else if (IsLeapYear(year))
 			return 29;
 		else
@@ -24,34 +24,24 @@ namespace ze
 	}
 
 	Date::Date()
-		: m_day(0), m_month(Month::JANUARY), m_year(0)
-	{
-
-	}
+		: m_day(1), m_month{}, m_year{} {}
 
 	Date::Date(int day, Month month, int year)
-		: m_month(month), m_year(year)
+		: m_day(day), m_month(month), m_year(year)
 	{
-		setDay(day);
+		fixDayValidity();
 	}
 
 	void Date::setDay(int day) noexcept
 	{
-		if (day < 0)
-			m_day = 0;
-		else if (day <= 28)
-			m_day = day;
-		else if (m_month == Month::FEBRUARY && IsLeapYear(m_year))
-			m_day = 29;
-		else if (Is30DaysMonth(m_month))
-			m_day = 30;
-		else
-			m_day = 31;
+		m_day = day;
+		fixDayValidity();
 	}
 
 	void Date::setMonth(Month month) noexcept
 	{
 		m_month = month;
+		fixDayValidity();
 	}
 
 	void Date::setYear(int year) noexcept
@@ -78,16 +68,15 @@ namespace ze
 
 		m_year += monthDiv.quot;
 		m_month = static_cast<Month>(monthDiv.rem);
+		
+		fixDayValidity();
 	}
 
 	void Date::addYears(int years) noexcept
 	{
 		m_year += years;
-		if (m_month == Month::FEBRUARY && m_day > 28 && !IsLeapYear(m_year))
-		{
-			m_day = 1;
-			m_month = Month::MARCH;
-		}
+
+		fixDayValidity();
 	}
 
 	void Date::add(int days, int months, int years) noexcept
@@ -110,6 +99,23 @@ namespace ze
 		formatted << std::put_time(&time, formatString.c_str());
 
 		return formatted.str();
+	}
+
+	void Date::fixDayValidity() noexcept
+	{
+		if (m_day <= 0)
+			m_day = 1;
+		else if (m_day > 28)
+		{
+			if (m_month == Month::FEBRUARY && !IsLeapYear(m_year))
+				m_day = 28;
+			else if (m_month == Month::FEBRUARY && IsLeapYear(m_year))
+				m_day = 29;
+			else if (Is30DaysMonth(m_month))
+				m_day = 30;
+			else
+				m_day = 31;
+		}
 	}
 
 	Date::Month operator++(Date::Month& month, int) noexcept

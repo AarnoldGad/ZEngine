@@ -2,8 +2,13 @@
 #include <typeinfo>
 #include <typeindex>
 #include <type_traits>
+#include <cassert>
+
+#include <Time/TimeTest.h>
 
 int main()
 {
+	TestDate();
+
 	return 0;
 }

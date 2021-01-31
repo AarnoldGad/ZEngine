@@ -66,6 +66,9 @@
     <ClInclude Include="include\zengine\Common\Time\Chrono.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="test\Time\TimeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Core.cpp">

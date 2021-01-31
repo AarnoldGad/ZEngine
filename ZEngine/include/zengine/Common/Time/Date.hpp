@@ -33,7 +33,7 @@ namespace ze
 	class ZE_API Date
 	{
 	public:
-		enum class Month : unsigned char
+		enum Month : unsigned char
 		{
 			JANUARY = 0, FEBRUARY, MARCH, APRIL, MAY, JUNE,
 			JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
@@ -64,11 +64,9 @@ namespace ze
 		Date(int day, Month month, int year);
 		Date();
 
-		// Temp
-		Date(Date const&) = delete;
-		Date& operator=(Date const&) = delete;
-
 	private:
+		void fixDayValidity() noexcept;
+
 		int m_day;
 		Month m_month;
 		int m_year;
