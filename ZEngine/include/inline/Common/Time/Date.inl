@@ -22,17 +22,8 @@ inline bool ze::Date::Is31DaysMonth(Month month) noexcept
 			 month == Month::DECEMBER;
 }
 
-inline int ze::Date::getDay() const noexcept
-{
-	return m_day;
-}
+inline int ze::Date::getDay() const noexcept { return m_day; }
 
-inline ze::Date::Month ze::Date::getMonth() const noexcept
-{
-	return m_month;
-}
+inline ze::Date::Month ze::Date::getMonth() const noexcept { return m_month; }
 
-inline int ze::Date::getYear() const noexcept
-{
-	return m_year;
-}
+inline int ze::Date::getYear() const noexcept { return m_year; }

@@ -59,8 +59,9 @@ namespace ze
 		Month getMonth() const noexcept;
 		int getYear() const noexcept;
 
-		std::string format(std::string const& formatString) const noexcept;
+		std::string format(std::string const& formatString) const;
 
+		Date(int day, int month, int year);
 		Date(int day, Month month, int year);
 		Date();
 

@@ -8,7 +8,5 @@
 
 int main()
 {
-	TestDate();
-
 	return 0;
 }

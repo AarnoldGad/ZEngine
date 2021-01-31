@@ -26,6 +26,17 @@ namespace ze
 	Date::Date()
 		: m_day(1), m_month{}, m_year{} {}
 
+	Date::Date(int day, int month, int year)
+		: m_day(day), m_month{}, m_year(year)
+	{
+		if (month < 1)
+			month = 1;
+		if (month > 12)
+			month = 12;
+
+		m_month = static_cast<Month>(m_month - 1);
+	}
+
 	Date::Date(int day, Month month, int year)
 		: m_day(day), m_month(month), m_year(year)
 	{
@@ -86,7 +97,7 @@ namespace ze
 		addDays(days);
 	}
 
-	std::string Date::format(std::string const& formatString) const noexcept
+	std::string Date::format(std::string const& formatString) const
 	{
 		std::stringstream formatted;
 
