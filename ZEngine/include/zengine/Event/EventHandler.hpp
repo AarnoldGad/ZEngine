@@ -34,21 +34,21 @@ using enable_if_is_event = std::enable_if_t<std::is_base_of_v<ze::Event, Type> >
 
 namespace ze
 {
-	template<typename EventType, typename = enable_if_is_event<EventType>>
-	class EventHandler : public EventCallback
-	{
-	public:
-		using CallbackType = std::function<void(EventType&)>;
+   template<typename EventType, typename = enable_if_is_event<EventType>>
+   class EventHandler : public EventCallback
+   {
+   public:
+      using CallbackType = std::function<void(EventType&)>;
 
-		explicit EventHandler(CallbackType callback, Priority priority = Priority::Normal);
+      explicit EventHandler(CallbackType callback, Priority priority = Priority::Normal);
 
-		virtual void operator()(Event& event) override final;
+      virtual void operator()(Event& event) override final;
 
-	private:
-		bool isEventReceivable(Event& event) const;
+   private:
+      bool isEventReceivable(Event& event) const;
 
-		CallbackType m_callback;
-	};
+      CallbackType m_callback;
+   };
 }
 
 #include <inline/Event/EventHandler.inl>

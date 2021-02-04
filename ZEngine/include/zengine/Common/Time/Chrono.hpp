@@ -31,22 +31,26 @@
 
 namespace ze
 {
-	class ZE_API Chrono
-	{
-	public:
-		Time lap() const noexcept;
-		Time restart() noexcept;
+   class ZE_API Chrono
+   {
+   public:
+      Time lap() const noexcept;
+      Time restart() noexcept;
 
-		void pause() noexcept;
-		void resume() noexcept;
+      void pause() noexcept;
+      void resume() noexcept;
 
-		Chrono();
+      Chrono();
 
-	private:
-		Time m_startTime;
-		Time m_accumTime;
-		bool m_paused;
-	};
+   private:
+      Time elapsed() const noexcept;
+
+      Time m_startTime;
+      Time m_accumTime;
+      bool m_paused;
+   };
 }
+
+#include <inline/Common/Time/Chrono.inl>
 
 #endif // ZE_CHRONO

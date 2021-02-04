@@ -32,32 +32,32 @@
 
 namespace ze
 {
-	class EventCallback;
+   class EventCallback;
 
-	class ZE_API EventBus
-	{
-	public:
-		template<typename EventType>
-		void pushEvent(EventType&& event);
+   class ZE_API EventBus
+   {
+   public:
+      template<typename EventType>
+      void pushEvent(EventType&& event);
 
-		template<typename EventType, typename... Args>
-		void pushEvent(Args&&... args);
+      template<typename EventType, typename... Args>
+      void pushEvent(Args&&... args);
 
-		void subscribe(EventCallback* callback);
-		void unsubscribe(EventCallback* callback);
+      void subscribe(EventCallback* callback);
+      void unsubscribe(EventCallback* callback);
 
-		void dispatchEvents();
-		void fireEvent(Event& event);
+      void dispatchEvents();
+      void fireEvent(Event& event);
 
-		EventBus() = default;
-		~EventBus();
+      EventBus() = default;
+      ~EventBus();
 
-	private:
-		void clearStack();
+   private:
+      void clearStack();
 
-		std::list<Event*> m_eventStack;
-		std::map<Priority, std::list<EventCallback*>, std::greater<Priority> > m_callbacks;
-	};
+      std::list<Event*> m_eventStack;
+      std::map<Priority, std::list<EventCallback*>, std::greater<Priority> > m_callbacks;
+   };
 }
 
 #include <inline/Event/EventBus.inl>

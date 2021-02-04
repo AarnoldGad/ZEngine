@@ -30,18 +30,18 @@
 
 namespace ze
 {
-	class ZE_API Core
-	{
-	public:
-		Core() = default;
-		~Core() = default;
+   class ZE_API Core
+   {
+   public:
+      Core() = default;
+      ~Core() = default;
 
-		void placeApplication();
+      void placeApplication();
 
-	private:
+   private:
 
 
-	};
+   };
 }
 
 #endif // ZE_CORE

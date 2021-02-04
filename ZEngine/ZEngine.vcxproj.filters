@@ -69,6 +69,9 @@
     <ClInclude Include="test\Time\TimeTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\zengine\Util\StringUtils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Core.cpp">
@@ -125,6 +128,12 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\inline\Common\Time\Date.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Time\Chrono.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Util\StringUtils.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

@@ -30,62 +30,61 @@
 
 namespace ze
 {
-	class ZE_API Time
-	{
-	public:
-		static Time const Null;
+   class ZE_API Time
+   {
+   public:
+      static Time const Null;
 
-		static Time Now() noexcept;
-		static Time Seconds(float seconds) noexcept;
-		static Time Milliseconds(int milliseconds) noexcept;
-		static Time Microseconds(int64_t microseconds) noexcept;
+      static Time Now() noexcept;
+      static Time Seconds(float seconds) noexcept;
+      static Time Milliseconds(int milliseconds) noexcept;
+      static Time Microseconds(int64_t microseconds) noexcept;
 
-		float asSeconds() const noexcept;
-		int asSecondsInt() const noexcept;
-		int asMilliseconds() const noexcept;
-		int64_t asMicroseconds() const noexcept;
+      float asSeconds() const noexcept;
+      int asSecondsInt() const noexcept;
+      int32_t asMilliseconds() const noexcept;
+      int64_t asMicroseconds() const noexcept;
 
-		Time operator-() const noexcept;
+      Time(int64_t microseconds);
+      Time();
 
-		Time& operator+=(Time const& other) noexcept;
+      Time operator-() const noexcept;
 
-		Time& operator-=(Time const& other) noexcept;
+      Time& operator+=(Time const& other) noexcept;
 
-		Time& operator*=(float factor) noexcept;
-		Time& operator*=(int64_t factor) noexcept;
+      Time& operator-=(Time const& other) noexcept;
 
-		Time& operator/=(float factor) noexcept;
-		Time& operator/=(int64_t factor) noexcept;
+      Time& operator*=(float factor) noexcept;
+      Time& operator*=(int64_t factor) noexcept;
 
-		Time& operator%=(Time const& mod) noexcept;
+      Time& operator/=(float factor);
+      Time& operator/=(int64_t factor);
 
-		bool operator==(Time const& other) const noexcept;
-		bool operator!=(Time const& other) const noexcept;
-		bool operator<=(Time const& other) const noexcept;
-		bool operator>=(Time const& other) const noexcept;
-		bool operator<(Time const& other) const noexcept;
-		bool operator>(Time const& other) const noexcept;
+      Time& operator%=(Time const& mod) noexcept;
 
-		Time operator+(Time const& other) const noexcept;
+      bool operator==(Time const& other) const noexcept;
+      bool operator!=(Time const& other) const noexcept;
+      bool operator<=(Time const& other) const noexcept;
+      bool operator>=(Time const& other) const noexcept;
+      bool operator<(Time const& other) const noexcept;
+      bool operator>(Time const& other) const noexcept;
 
-		Time operator-(Time const& other) const noexcept;
+      Time operator+(Time const& other) const noexcept;
 
-		Time operator*(float factor) const noexcept;
-		Time operator*(int64_t factor) const noexcept;
+      Time operator-(Time const& other) const noexcept;
 
-		Time operator/(Time const& other) const noexcept;
-		Time operator/(float factor) const noexcept;
-		Time operator/(int64_t factor) const noexcept;
+      Time operator*(float factor) const noexcept;
+      Time operator*(int64_t factor) const noexcept;
 
-		Time operator%(Time const& other) const noexcept;
+      Time operator/(Time const& other) const;
+      Time operator/(float factor) const;
+      Time operator/(int64_t factor) const;
 
-		Time();
+      Time operator%(Time const& other) const noexcept;
 
-	private:
-		explicit Time(int64_t microseconds);
-
-		int64_t m_microseconds;
-	};
+   private:
+      int64_t m_microseconds;
+   };
 }
 
 #include <inline/Common/Time/Time.inl>

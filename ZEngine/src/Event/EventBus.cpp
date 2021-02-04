@@ -4,46 +4,46 @@
 
 namespace ze
 {
-	void EventBus::dispatchEvents()
-	{
-		for (auto& it : m_eventStack)
-			fireEvent(*it);
+   void EventBus::dispatchEvents()
+   {
+      for (auto& it : m_eventStack)
+         fireEvent(*it);
 
-		clearStack();
-	}
+      clearStack();
+   }
 
-	void EventBus::fireEvent(Event& event)
-	{
-		for (auto& it : m_callbacks)
-			for (auto& callback : it.second)
-				if (!event.isCanceled())
-					(*callback)(event);
-				else
-					return;
-	}
+   void EventBus::fireEvent(Event& event)
+   {
+      for (auto& it : m_callbacks)
+         for (auto& callback : it.second)
+            if (!event.isCanceled())
+               (*callback)(event);
+            else
+               return;
+   }
 
-	void EventBus::subscribe(EventCallback* callback)
-	{
-		m_callbacks[callback->getPriority()].push_back(callback);
-		m_callbacks[callback->getPriority()].sort();
-		m_callbacks[callback->getPriority()].unique();
-	}
+   void EventBus::subscribe(EventCallback* callback)
+   {
+      m_callbacks[callback->getPriority()].push_back(callback);
+      m_callbacks[callback->getPriority()].sort();
+      m_callbacks[callback->getPriority()].unique();
+   }
 
-	void EventBus::unsubscribe(EventCallback* callback)
-	{
-		m_callbacks[callback->getPriority()].remove(callback);
-	}
+   void EventBus::unsubscribe(EventCallback* callback)
+   {
+      m_callbacks[callback->getPriority()].remove(callback);
+   }
 
-	void EventBus::clearStack()
-	{
-		for (auto& it : m_eventStack)
-			delete it;
+   void EventBus::clearStack()
+   {
+      for (auto& it : m_eventStack)
+         delete it;
 
-		m_eventStack.clear();
-	}
+      m_eventStack.clear();
+   }
 
-	EventBus::~EventBus()
-	{
-		clearStack();
-	}
+   EventBus::~EventBus()
+   {
+      clearStack();
+   }
 }

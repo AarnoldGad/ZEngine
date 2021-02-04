@@ -3,5 +3,6 @@
 
 namespace ze
 {
-	EventCallback::EventCallback(Priority priority) : m_priority(priority) {}
+   EventCallback::EventCallback(Priority priority)
+      : m_priority(priority) {}
 }

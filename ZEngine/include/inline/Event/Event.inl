@@ -1,4 +1,4 @@
 inline bool ze::Event::isCanceled() const
 {
-	return m_canceled;
+   return m_canceled;
 }

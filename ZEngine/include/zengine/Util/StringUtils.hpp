@@ -1,6 +1,6 @@
 /**
- * Priority.hpp
- * 14 Dec 2020
+ * StringUtils.hpp
+ * 4 Feb 2021
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020-2021 Gaétan Jalin
@@ -23,21 +23,16 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_PRIORITY
-#define ZE_PRIORITY
-
-#include <zebuild.hpp>
+#ifndef ZE_STRINGUTILS
+#define ZE_STRINGUTILS
 
 namespace ze
 {
-   enum class Priority : unsigned short
-   {
-      VeryLow = FLAG(0),
-      Low = FLAG(1),
-      Normal = FLAG(2),
-      High = FLAG(3),
-      VeryHigh = FLAG(4)
-   };
+   template<typename CharType>
+   constexpr CharType const* StringLiteral(char const* str, wchar_t const* wstr, char16_t const* ustr, char32_t const* Ustr);
+   #define STRING_LITERAL(type, str) ze::StringLiteral<type>(str, L##str, u##str, U##str)
 }
 
-#endif // ZE_PRIORITY
+#include <inline/Util/StringUtils.inl>
+
+#endif // ZE_STRINGUTILS

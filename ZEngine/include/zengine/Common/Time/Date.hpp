@@ -30,54 +30,54 @@
 
 namespace ze
 {
-	class ZE_API Date
-	{
-	public:
-		enum Month : unsigned char
-		{
-			JANUARY = 0, FEBRUARY, MARCH, APRIL, MAY, JUNE,
-			JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
-		};
+   class ZE_API Date
+   {
+   public:
+      enum Month : unsigned char
+      {
+         JANUARY = 0, FEBRUARY, MARCH, APRIL, MAY, JUNE,
+         JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+      };
 
-		static Date CurrentDate();
+      static Date CurrentDate();
 
-		static bool IsLeapYear(int year) noexcept;
-		static bool Is30DaysMonth(Month month) noexcept;
-		static bool Is31DaysMonth(Month month) noexcept;
-		static int MonthMaxDays(Month month, int year) noexcept;
+      static bool IsLeapYear(int year) noexcept;
+      static bool Is30DaysMonth(Month month) noexcept;
+      static bool Is31DaysMonth(Month month) noexcept;
+      static int MonthMaxDays(Month month, int year) noexcept;
 
-		void addDays(int days) noexcept;
-		void addMonths(int months) noexcept;
-		void addYears(int years) noexcept;
-		void add(int days, int months, int years) noexcept;
+      void addDays(int days) noexcept;
+      void addMonths(int months) noexcept;
+      void addYears(int years) noexcept;
+      void add(int days, int months, int years) noexcept;
 
-		void setDay(int day) noexcept;
-		void setMonth(Month month) noexcept;
-		void setYear(int year) noexcept;
+      void setDay(int day) noexcept;
+      void setMonth(Month month) noexcept;
+      void setYear(int year) noexcept;
 
-		int getDay() const noexcept;
-		Month getMonth() const noexcept;
-		int getYear() const noexcept;
+      int getDay() const noexcept;
+      Month getMonth() const noexcept;
+      int getYear() const noexcept;
 
-		std::string format(std::string const& formatString) const;
+      std::string format(std::string const& formatString) const;
 
-		Date(int day, int month, int year);
-		Date(int day, Month month, int year);
-		Date();
+      Date(int day, int month, int year);
+      Date(int day, Month month, int year);
+      Date();
 
-	private:
-		void fixDayValidity() noexcept;
+   private:
+      void fixDayValidity() noexcept;
 
-		int m_day;
-		Month m_month;
-		int m_year;
-	};
+      int m_day;
+      Month m_month;
+      int m_year;
+   };
 
-	Date::Month operator++(Date::Month& month, int) noexcept;
-	Date::Month operator--(Date::Month& month, int) noexcept;
+   Date::Month operator++(Date::Month& month, int) noexcept;
+   Date::Month operator--(Date::Month& month, int) noexcept;
 
-	Date::Month& operator++(Date::Month& month) noexcept;
-	Date::Month& operator--(Date::Month& month) noexcept;
+   Date::Month& operator++(Date::Month& month) noexcept;
+   Date::Month& operator--(Date::Month& month) noexcept;
 }
 
 #include <inline/Common/Time/Date.inl>

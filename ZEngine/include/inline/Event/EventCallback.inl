@@ -1,4 +1,4 @@
 inline ze::Priority ze::EventCallback::getPriority() const
 {
-	return m_priority;
+   return m_priority;
 }

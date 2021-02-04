@@ -33,18 +33,18 @@
 
 namespace ze
 {
-	class ZE_API EventCallback
-	{
-	public:
-		explicit EventCallback(Priority priority);
+   class ZE_API EventCallback
+   {
+   public:
+      explicit EventCallback(Priority priority);
 
-		virtual void operator()(Event&) = 0;
+      virtual void operator()(Event&) = 0;
 
-		Priority getPriority() const;
+      Priority getPriority() const;
 
-	private:
-		Priority m_priority;
-	};
+   private:
+      Priority m_priority;
+   };
 }
 
 #include <inline/Event/EventCallback.inl>

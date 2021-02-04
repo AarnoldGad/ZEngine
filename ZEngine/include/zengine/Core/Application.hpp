@@ -30,18 +30,18 @@
 
 namespace ze
 {
-	class ZE_API Application
-	{
-	public:
+   class ZE_API Application
+   {
+   public:
 
 
-	protected:
+   protected:
 
 
-	private:
+   private:
 
 
-	};
+   };
 }
 
 #endif // ZE_APPLICATION

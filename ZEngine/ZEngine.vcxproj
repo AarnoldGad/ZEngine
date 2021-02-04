@@ -328,6 +328,7 @@
     <ClInclude Include="include\zengine\Event\Event.hpp" />
     <ClInclude Include="include\zengine\Event\EventBus.hpp" />
     <ClInclude Include="include\zengine\Event\EventHandler.hpp" />
+    <ClInclude Include="include\zengine\Util\StringUtils.hpp" />
     <ClInclude Include="include\zengine\zengine.hpp" />
     <ClInclude Include="include\zepch.hpp" />
     <ClInclude Include="test\Time\TimeTest.h" />
@@ -356,12 +357,14 @@
     <None Include="include\inline\Abstract\Singleton.inl" />
     <None Include="include\inline\Common\Logger.inl" />
     <None Include="include\inline\Common\tee.inl" />
+    <None Include="include\inline\Common\Time\Chrono.inl" />
     <None Include="include\inline\Common\Time\Date.inl" />
     <None Include="include\inline\Common\Time\Time.inl" />
     <None Include="include\inline\Event\Event.inl" />
     <None Include="include\inline\Event\EventBus.inl" />
     <None Include="include\inline\Event\EventCallback.inl" />
     <None Include="include\inline\Event\EventHandler.inl" />
+    <None Include="include\inline\Util\StringUtils.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
