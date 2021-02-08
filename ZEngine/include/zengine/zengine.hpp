@@ -36,6 +36,8 @@
 #include <zengine/Common/Time/Time.hpp>
 #include <zengine/Common/Time/Chrono.hpp>
 #include <zengine/Common/Time/Date.hpp>
+#include <zengine/Common/Signal/Signal.hpp>
+#include <zengine/Common/Signal/Connection.hpp>
 
 #include <zengine/Event/Event.hpp>
 #include <zengine/Event/EventBus.hpp>

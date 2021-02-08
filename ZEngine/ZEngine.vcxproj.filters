@@ -72,6 +72,12 @@
     <ClInclude Include="include\zengine\Util\StringUtils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\zengine\Common\Signal\Signal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Common\Signal\Connection.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Core.cpp">
@@ -134,6 +140,12 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\inline\Util\StringUtils.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Signal\Signal.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Signal\Connection.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

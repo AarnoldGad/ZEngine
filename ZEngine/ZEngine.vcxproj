@@ -316,6 +316,8 @@
     <ClInclude Include="include\constants.hpp" />
     <ClInclude Include="include\zebuild.hpp" />
     <ClInclude Include="include\zengine\Abstract\Singleton.hpp" />
+    <ClInclude Include="include\zengine\Common\Signal\Connection.hpp" />
+    <ClInclude Include="include\zengine\Common\Signal\Signal.hpp" />
     <ClInclude Include="include\zengine\Common\Time\Date.hpp" />
     <ClInclude Include="include\zengine\Common\Logger.hpp" />
     <ClInclude Include="include\zengine\Common\Priority.hpp" />
@@ -356,6 +358,8 @@
   <ItemGroup>
     <None Include="include\inline\Abstract\Singleton.inl" />
     <None Include="include\inline\Common\Logger.inl" />
+    <None Include="include\inline\Common\Signal\Connection.inl" />
+    <None Include="include\inline\Common\Signal\Signal.inl" />
     <None Include="include\inline\Common\tee.inl" />
     <None Include="include\inline\Common\Time\Chrono.inl" />
     <None Include="include\inline\Common\Time\Date.inl" />
