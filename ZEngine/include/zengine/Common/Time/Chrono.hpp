@@ -1,6 +1,6 @@
 /**
- * Application.hpp
- * 18 Nov 2020
+ * Chrono.hpp
+ * 20 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020-2021 Gaétan Jalin
@@ -23,25 +23,34 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_APPLICATION
-#define ZE_APPLICATION
+#ifndef ZE_CHRONO
+#define ZE_CHRONO
 
 #include <zebuild.hpp>
+#include <zengine/Common/Time/Time.hpp>
 
 namespace ze
 {
-	class ZE_API Application
-	{
-	public:
+   class ZE_API Chrono
+   {
+   public:
+      Time lap() const noexcept;
+      Time restart() noexcept;
 
+      void pause() noexcept;
+      void resume() noexcept;
 
-	protected:
+      Chrono();
 
+   private:
+      Time elapsed() const noexcept;
 
-	private:
-
-
-	};
+      Time m_startTime;
+      Time m_accumTime;
+      bool m_paused;
+   };
 }
 
-#endif // ZE_APPLICATION
+#include <inline/Common/Time/Chrono.inl>
+
+#endif // ZE_CHRONO

@@ -64,13 +64,13 @@ template<typename PrintFn>
 class Tee<PrintFn, if_is_invocable<PrintFn> >
 {
 public:
-	template<typename Value>
-	decltype(auto) operator()(Value&& value);
+   template<typename Value>
+   decltype(auto) operator()(Value&& value);
 
-	explicit Tee(PrintFn func);
+   explicit Tee(PrintFn func);
 
 private:
-	PrintFn m_print;
+   PrintFn m_print;
 };
 
 // File output specialisation
@@ -79,14 +79,14 @@ template<>
 class Tee<std::filesystem::path>
 {
 public:
-	template<typename Value>
-	decltype(auto) operator()(Value&& value);
+   template<typename Value>
+   decltype(auto) operator()(Value&& value);
 
-	explicit Tee(std::filesystem::path const& filePath, std::ios_base::openmode mode = std::ios_base::out | std::ios_base::app);
+   explicit Tee(std::filesystem::path const& filePath, std::ios_base::openmode mode = std::ios_base::out | std::ios_base::app);
 
 private:
-	std::filesystem::path m_file;
-	std::ios_base::openmode m_mode;
+   std::filesystem::path m_file;
+   std::ios_base::openmode m_mode;
 };
 
 // Stream output specialisation
@@ -94,13 +94,13 @@ template<typename Stream>
 class Tee<Stream, if_is_stream<Stream> >
 {
 public:
-	template<typename Value>
-	decltype(auto) operator()(Value&& value);
+   template<typename Value>
+   decltype(auto) operator()(Value&& value);
 
-	explicit Tee(Stream& output);
+   explicit Tee(Stream& output);
 
 private:
-	std::ostream& m_output;
+   std::ostream& m_output;
 };
 
 // Deductions guides

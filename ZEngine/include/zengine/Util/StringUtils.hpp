@@ -1,6 +1,6 @@
 /**
- * Application.hpp
- * 18 Nov 2020
+ * StringUtils.hpp
+ * 4 Feb 2021
  * Gaétan "The Aarnold" Jalin
  *
  * Copyright (C) 2020-2021 Gaétan Jalin
@@ -23,25 +23,16 @@
  *
  *    3. This notice may not be removed or altered from any source distribution.
  **/
-#ifndef ZE_APPLICATION
-#define ZE_APPLICATION
-
-#include <zebuild.hpp>
+#ifndef ZE_STRINGUTILS
+#define ZE_STRINGUTILS
 
 namespace ze
 {
-	class ZE_API Application
-	{
-	public:
-
-
-	protected:
-
-
-	private:
-
-
-	};
+   template<typename CharType>
+   constexpr CharType const* StringLiteral(char const* str, wchar_t const* wstr, char16_t const* ustr, char32_t const* Ustr);
+   #define STRING_LITERAL(type, str) ze::StringLiteral<type>(str, L##str, u##str, U##str)
 }
 
-#endif // ZE_APPLICATION
+#include <inline/Util/StringUtils.inl>
+
+#endif // ZE_STRINGUTILS

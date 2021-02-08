@@ -28,25 +28,25 @@
 
 namespace ze
 {
-	template<typename ObjectType>
-	class Singleton
-	{
-	public:
-		static ObjectType& Instance();
-		static void Reset();
+   template<typename ObjectType>
+   class Singleton
+   {
+   public:
+      static ObjectType& Instance();
+      static void Reset();
 
-	protected:
-		Singleton() = default;
-		virtual ~Singleton() = default;
+   protected:
+      Singleton() = default;
+      virtual ~Singleton() = default;
 
-	private:
-		Singleton(Singleton const&) = delete;
-		Singleton& operator=(Singleton const&) = delete;
-		Singleton(Singleton&&) = delete;
-		Singleton& operator=(Singleton&&) = delete;
+   private:
+      Singleton(Singleton const&) = delete;
+      Singleton& operator=(Singleton const&) = delete;
+      Singleton(Singleton&&) = delete;
+      Singleton& operator=(Singleton&&) = delete;
 
-		static std::unique_ptr<ObjectType> s_instance;
-	};
+      static std::unique_ptr<ObjectType> s_instance;
+   };
 }
 
 #include <inline/Abstract/Singleton.inl>

@@ -36,9 +36,6 @@
     <ClInclude Include="include\constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\zengine\Common\tee.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\zengine\Event\Event.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -55,6 +52,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\zepch.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Common\tee.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Common\Time\Date.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Common\Time\Time.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Common\Time\Chrono.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\Time\TimeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\zengine\Util\StringUtils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -75,6 +90,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\zepch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\Time\Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\Time\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Common\Time\Chrono.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,6 +122,18 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\inline\Event\Event.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Time\Time.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Time\Date.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Common\Time\Chrono.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Util\StringUtils.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

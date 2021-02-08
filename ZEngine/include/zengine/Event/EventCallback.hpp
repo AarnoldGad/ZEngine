@@ -3,7 +3,7 @@
  * 14 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
- * Copyright (C) 2020 Gaétan Jalin
+ * Copyright (C) 2020-2021 Gaétan Jalin
  *
  * This software is provided 'as-is', without any express or implied
  * warranty.  In no event will the authors be held liable for any damages
@@ -33,18 +33,18 @@
 
 namespace ze
 {
-	class ZE_API EventCallback
-	{
-	public:
-		explicit EventCallback(Priority priority);
+   class ZE_API EventCallback
+   {
+   public:
+      explicit EventCallback(Priority priority);
 
-		virtual void operator()(Event&) = 0;
+      virtual void operator()(Event&) = 0;
 
-		Priority getPriority() const;
+      Priority getPriority() const;
 
-	private:
-		Priority m_priority;
-	};
+   private:
+      Priority m_priority;
+   };
 }
 
 #include <inline/Event/EventCallback.inl>

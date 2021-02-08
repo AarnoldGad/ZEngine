@@ -3,7 +3,7 @@
  * 14 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
- * Copyright (C) 2020 Gaétan Jalin
+ * Copyright (C) 2020-2021 Gaétan Jalin
  *
  * This software is provided 'as-is', without any express or implied
  * warranty.  In no event will the authors be held liable for any damages
@@ -30,14 +30,14 @@
 
 namespace ze
 {
-	enum class Priority : unsigned short
-	{
-		VeryLow = FLAG(0),
-		Low = FLAG(1),
-		Normal = FLAG(2),
-		High = FLAG(3),
-		VeryHigh = FLAG(4)
-	};
+   enum class Priority : unsigned short
+   {
+      VeryLow = FLAG(0),
+      Low = FLAG(1),
+      Normal = FLAG(2),
+      High = FLAG(3),
+      VeryHigh = FLAG(4)
+   };
 }
 
 #endif // ZE_PRIORITY

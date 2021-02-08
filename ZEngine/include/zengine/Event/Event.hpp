@@ -3,7 +3,7 @@
  * 12 Dec 2020
  * Gaétan "The Aarnold" Jalin
  *
- * Copyright (C) 2020 Gaétan Jalin
+ * Copyright (C) 2020-2021 Gaétan Jalin
  *
  * This software is provided 'as-is', without any express or implied
  * warranty.  In no event will the authors be held liable for any damages
@@ -30,21 +30,21 @@
 
 namespace ze
 {
-	class ZE_API Event
-	{
-	public:
-		void cancel();
-		void setCanceled(bool cancel);
-		bool isCanceled() const;
+   class ZE_API Event
+   {
+   public:
+      void cancel();
+      void setCanceled(bool cancel);
+      bool isCanceled() const;
 
-		virtual std::string toString() const = 0;
+      virtual std::string toString() const = 0;
 
-		Event(/* TimeStamp */);
-		virtual ~Event() = default;
+      Event(/* TimeStamp */);
+      virtual ~Event() = default;
 
-	private:
-		bool m_canceled;
-	};
+   private:
+      bool m_canceled;
+   };
 }
 
 #include <inline/Event/Event.inl>
