@@ -28,9 +28,10 @@
 
 namespace ze
 {
+   #define STRING_LITERAL(type, str) ze::StringLiteral<type>(str, L##str, u##str, U##str)
+
    template<typename CharType>
    constexpr CharType const* StringLiteral(char const* str, wchar_t const* wstr, char16_t const* ustr, char32_t const* Ustr);
-   #define STRING_LITERAL(type, str) ze::StringLiteral<type>(str, L##str, u##str, U##str)
 }
 
 #include <inline/Util/StringUtils.inl>
