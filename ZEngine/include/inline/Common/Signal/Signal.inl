@@ -41,7 +41,7 @@ void ze::Signal<ReturnType(Args...)>::replaceConnection(ConnectionType& oldConne
 {
    auto it = std::find(m_connections.begin(), m_connections.end(), &oldConnection);
    if (it != m_connections.end())
-      it = &newConnection;
+      *it = &newConnection;
 }
 
 template<typename ReturnType, typename... Args>
