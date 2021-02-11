@@ -48,7 +48,7 @@ namespace ze
       void connect(SignalType* signal, ReceiverType receiver) noexcept;
       void disconnect() noexcept;
 
-      operator bool() const noexcept;
+      explicit operator bool() const noexcept;
       bool isConnected() const noexcept;
 
       Connection(SignalType* signal, ReceiverType receiver) noexcept;
