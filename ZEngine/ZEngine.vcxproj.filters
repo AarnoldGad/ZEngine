@@ -78,6 +78,9 @@
     <ClInclude Include="include\zengine\Common\Signal\Connection.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\zengine\Resources\ResourceManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Core.cpp">
@@ -146,6 +149,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="include\inline\Common\Signal\Connection.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="include\inline\Resource\ResourceManager.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

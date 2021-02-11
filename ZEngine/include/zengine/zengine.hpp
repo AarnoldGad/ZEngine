@@ -39,6 +39,8 @@
 #include <zengine/Common/Signal/Signal.hpp>
 #include <zengine/Common/Signal/Connection.hpp>
 
+#include <zengine/Resources/ResourceManager.hpp>
+
 #include <zengine/Event/Event.hpp>
 #include <zengine/Event/EventBus.hpp>
 #include <zengine/Event/EventHandler.hpp>
