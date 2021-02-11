@@ -330,6 +330,7 @@
     <ClInclude Include="include\zengine\Event\Event.hpp" />
     <ClInclude Include="include\zengine\Event\EventBus.hpp" />
     <ClInclude Include="include\zengine\Event\EventHandler.hpp" />
+    <ClInclude Include="include\zengine\Resources\ResourceManager.hpp" />
     <ClInclude Include="include\zengine\Util\StringUtils.hpp" />
     <ClInclude Include="include\zengine\zengine.hpp" />
     <ClInclude Include="include\zepch.hpp" />
@@ -368,6 +369,7 @@
     <None Include="include\inline\Event\EventBus.inl" />
     <None Include="include\inline\Event\EventCallback.inl" />
     <None Include="include\inline\Event\EventHandler.inl" />
+    <None Include="include\inline\Resource\ResourceManager.inl" />
     <None Include="include\inline\Util\StringUtils.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
